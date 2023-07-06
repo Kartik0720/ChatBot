@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration </title>
+   
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/adminRegC.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/favlogo.png') }}" sizes="32x32" type="image/png">
+<style>
+
+</style>
+<title>
+Admin Registration
+</title>
+<script type="text/javascript">
+function validate()
+{
+	alert("success");
+}
+
+var state=false;
+function toggle()
+{
+
+if(state)
+        {
+            document.getElementById("admin_password").setAttribute("type","password");
+
+            document.getElementById("showpw") .setAttribute("class","showpw");
+            state=false;
+        }
+        else{
+
+            document.getElementById("admin_password").setAttribute("type","text");
+            document.getElementById("showpw") .setAttribute("class","showpw1");
+
+            state=true;
+        }
+}
+function togglec()
+{
+
+if(state)
+        {
+            document.getElementById("confirm_password").setAttribute("type","password");
+
+            document.getElementById("showpwc") .setAttribute("class","showpw");
+            state=false;
+        }
+        else{
+
+            document.getElementById("confirm_password").setAttribute("type","text");
+            document.getElementById("showpwc") .setAttribute("class","showpw1");
+
+            state=true;
+        }
+}
+var fun=true;
+function myD()
+
+{
+    
+    if(fun)
+    {
+
+    
+        document.getElementById("box").setAttribute("class","boxj");
+        alert("Theme applied");
+        fun=false;
+    }
+    else{
+        document.getElementById("box").setAttribute("class","box");
+        alert("Theme removed");
+        fun=true;
+    }
+
+}
+</script>
+
+
+
+
+
+</head>
+<body>
+
+  
+
+
+<div class="ff"></div>
+    <div class="box" id="box">
+    <form method="POST" action="/register">
+  <indata><logo><img src="{{ url_for('static', filename='icons/glslogo.png') }}"/></logo><h3>Admin Registration</h3></indata>
+      
+      <br>
+      
+    <br><indata><input type="text" id="admin_name" name="admin_name" pattern="[a-zA-Z]+" required><label>ENTER USERNAME</label><ico><img src="{{ url_for('static', filename='icons/avatar.png') }}"/></ico></indata><br><br><br>
+    <br><indata><input type="email" id="admin_mail" name="admin_mail" required><label>ENTER EMAIL ID</label><ico><img src="{{ url_for('static', filename='icons/mail.png') }}"/></ico></indata><br><br><br>
+    <br><indata><input type="password" id="admin_password" name="admin_password" required><label>ENTER PASSWORD</label><ico><showpw id="showpw" onclick="toggle()"></showpw></ico></indata><br><br><br>
+    <br><indata><input type="password" id="confirm_password" name="confirm_password" required><label>CONFIRM PASSWORD</label><ico><showpw id="showpwc" onclick="togglec()"></showpw></ico></indata><br><br><br>
+    
+    
+    <input class="btns" type="submit" value="Submit" id="adminsub" onClick="btnsclick()">
+    <p>Already Registered?<a href="{{ url_for('adminlog') }}">Click here</a> to go to the Login page.</p>
+    
+    </script>
+   <br>
+   <br>
+  
+   </form>
+</div>
+<div class="fff"></div>
+    <footer>
+    
+    <button id="j" onclick="myD()">Copyright &copy; INprocess</button>
+
+</footer>
+
+</body>
+</html>

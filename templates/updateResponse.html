@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Response</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/adminfn.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/favlogo.png') }}" sizes="32x32" type="image/png">
+<style>
+
+</style>
+<!-- <title>
+Response Edit
+</title> -->
+<script type="text/javascript">
+function validate()
+{
+	alert("success");
+}
+
+var state=false;
+function toggle()
+{
+
+if(state)
+        {
+            document.getElementById("password").setAttribute("type","password");
+
+            document.getElementById("showpw") .setAttribute("class","showpw");
+            state=false;
+        }
+        else{
+
+            document.getElementById("password").setAttribute("type","text");
+            document.getElementById("showpw") .setAttribute("class","showpw1");
+
+            state=true;
+        }
+}
+var fun=true;
+function myD()
+{
+    if(fun)
+    {
+        document.getElementById("box").setAttribute("class","boxj");
+        alert("Applied!😁🙂");
+        fun=false;
+    }
+    else{
+        document.getElementById("box").setAttribute("class","box");
+        alert("Revert back done🙄");
+        fun=true;
+    }
+
+}
+function goToNextPage() {
+  window.location.href = "/dashboard";
+}
+</script>
+
+</head>
+<body>
+<div class="ff"></div>
+    <div class="box" id="box">
+        <form method="post">
+    <indata><logo><img src="{{ url_for('static', filename='icons/glslogo.png') }}"/></logo><h3>EDIT RESPONSES</h3></indata>
+      
+      <br>
+      <table>
+        {% for intent in intents %}
+        <tr>
+            <td>TAG:</td>
+            <td><indata><input type="text" name ="tag" class="tag" id="tag" value="{{ intent[0]}}"  placeholder=" Enter tag"required></indata></td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>PATTERNS:</td>
+            <td><indata><textarea name="patterns" class="patterns" id="patterns" rows="10" cols="30" placeholder=" Enter patterns">{{ intent[1] }}</textarea></indata></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>RESPONSE:</td>
+            <td><indata><textarea name="responses" class="responses"id="responses" rows="10" cols="30" placeholder=" Enter response" >{{ intent[2] }}</textarea></indata></td>
+            <td></td>
+        </tr>
+        
+    
+    
+        <tr>
+            <td><input class="btnup" type="submit"name="submit_button" value="UPDATE" id="valueup"></td>
+            <td><input class="btndis" type="submit"name="submit_button" value="DISPLAY" id ="valuedis" onClick="goToNextPage()" ></td>
+        </tr>
+        {% endfor %}
+    </table>
+        <small>*Use Pipe Sign(|) to Enter text in new line</small>
+    </form>
+   <br>
+   <br>
+   <br>
+    </form>
+</div>
+<!-- <div class="fff"></div>
+    <footer>
+    
+    <button id="j" onclick="myD()">Copyright &copy; INprocess</button>
+
+</footer> -->
+
+</body>
+</html>

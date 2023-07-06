@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/adminlogin.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/favlogo.png') }}" sizes="32x32" type="image/png">
+<style>
+
+</style>
+<title>
+Admin login
+</title>
+<script type="text/javascript">
+function validate()
+{
+	alert("success");
+}
+
+var state=false;
+function toggle()
+{
+
+if(state)
+    {state=false;
+        document.getElementById("admin_password").setAttribute("type","password");
+
+        document.getElementById("showpw") .setAttribute("class","showpw");
+    }
+    else{
+        state=true;
+        document.getElementById("admin_password").setAttribute("type","text");
+        document.getElementById("showpw") .setAttribute("class","showpw1");
+    }
+}
+var fun=true;
+function myD()
+{
+    if(fun)
+    {
+        document.getElementById("box").setAttribute("class","boxj");
+        alert("Theme applied");
+        fun=false;
+    }
+    else{
+        document.getElementById("box").setAttribute("class","box");
+        alert("Theme Removed");
+        fun=true;
+    }
+
+}
+</script>
+</head>
+<body>
+<div class="ff"></div>
+    <div class="box" id="box">
+    <form method="POST" action="/adminlog">
+  <indata><logo><img src="{{ url_for('static', filename='icons/glslogo.png') }}" alt="Logo">
+  </logo><h3>Admin Login</h3></indata>
+      
+      <br>
+    <br><indata><input type="text" id="admin_name" name="admin_name" required><label>ENTER ADMIN NAME</label><ico><img src="{{ url_for('static', filename='icons/avatar.png') }}"/></ico></indata><br><br><br>
+    <br><indata><input type="password" id="admin_password" name="admin_password"  required><label>ENTER PASSWORD</label><ico><showpw id="showpw" onclick="toggle()"></showpw></ico></indata><br><br><br><br>
+    
+    <input class="btns" type="submit" value="Submit" id="adminsub" onClick="btnsclick()">
+    <p>New admin?<a href="{{ url_for('register') }}">Click here</a> to go to the Registration page.</p>
+   <br>
+   <br>
+    </form>
+</div>
+<div class="fff"></div>
+    <footer>
+    
+    <button id="j" onclick="myD()">Copyright &copy; INprocess</button>
+
+</footer>
+
+</body>
+</html>
